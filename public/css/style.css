@@ -1,0 +1,28 @@
+.home{
+    background: url(../img/home.jpg) center center no-repeat;
+    background-size: cover;
+    height: 680px;
+}
+.navbar{
+    background-color: darkslateblue;
+}
+.home{
+    width: 100%;
+    height: 680px;
+}
+.overlay{
+    background: rgba(0, 0, 0, .5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.card-img{
+    width: 100%;
+}
+body{
+    background-color: seashell;
+}
+
+h3,h4{
+    color: white;
+}
