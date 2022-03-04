@@ -1,9 +1,9 @@
-$('form#reg').on('submit', function(e) {
+$('form#regForm').on('submit', function(e) {
     e.preventDefault();
 
 let info = $(this).serializeArray();
 console.log(info);
-if(info[4].value == info[5].value) {
+if(info[3].value == info[4].value) {
     $.ajax({
         url: $(this).attr('action'),
         type:$(this).attr('method'),
@@ -18,6 +18,6 @@ if(info[4].value == info[5].value) {
  } else {
      $('Input#pass1').addClass('is-invalid');
      $('Input#pass2').addClass('is-invalid');
-     $('div#errorPass').text('не совпадают');
+     $('div#errorPass').text('не совпадение паролей');
  }
 });

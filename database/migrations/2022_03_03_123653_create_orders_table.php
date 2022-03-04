@@ -15,14 +15,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('cat');
-            $table->foreign('cat')->references('id')->on('cats');
-            $table->enum('status');
+            $table->enum('status', ['Новая', 'Принято вы работу', 'Выполнено']);
             $table->string('img1');
             $table->string('img2');
             $table->text('comment');
             $table->text('desc');
-
             $table->timestamps();
         });
     }

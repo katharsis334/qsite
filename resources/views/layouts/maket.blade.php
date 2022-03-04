@@ -12,27 +12,29 @@
     <div class="modal" id="reg" tabindex="-1" aria-labelledby="reg" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
+            <form action="{{route('reg')}}" method="post" id="regForm">
             <div class="modal-header">
               <h5 class="modal-title">Регистрация</h5>
             </div>
             <div class="modal-body">
-                <form action="{{route('reg')}}" method="post" id="reg">
                     @csrf
                 <input type="text" required placeholder="ФИО" class="form-control" name="fio"><br>
+                <div class="invalid-feedback" id="errorFio"></div>
+                <input type="text" required placeholder="Логин" class="form-control" name="login"><br>
+                <div class="invalid-feedback" id="errorLogin"></div>
                 <input type="password" required placeholder="Пароль" class="form-control" name="pass1"><br>
                 <input type="password" required placeholder="Повторите пароль" class="form-control" name="pass2"><br>
-                <div class="invalid-feedback">
-                  Пароли не совпадают
-                  </div>
+                <div class="invalid-feedback" id="errorPass"></div>
                 <input type="email" required placeholder="E-mail" class="form-control" name="email"><br>
+                <div class="invalid-feedback" id="errorEmail"></div>
                 <input type="checkbox" id="sogl" required>
                 <label for="sogl" class="form-check-label">Я согласен на обработку персональных даннных</label>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
               <button type="submit" class="btn btn-warning">Отправить</button>
-            </form>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -65,6 +67,7 @@
         <div class="container-fluid">
                 <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut debitis. Vitae, rerum id in et </h3>
                 <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut debitis. Vitae, rerum id in et </h4>
+                <button class="btn btn-warning my-2">Попробовать</button>
         </div>
     </div><br><br>
 
@@ -80,10 +83,14 @@
     </div><br>
 
     <div class="container">
+      <div class="orders">
         <div class="row">
             <div class="col-4">
                 <div class="card">
-                    <img src="../../../public/img/order1.jpg" class="card-img" alt="...">
+                  <div class="img">
+                    <img src="../../../public/img/order1.jpg" width="100%" class="img1">
+                    <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+                  </div>
                     <div class="card-body">
                       <h5 class="card-title">Категория:</h5>
                       <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -91,26 +98,35 @@
                     </div>
                   </div>
             </div>
+
             <div class="col-4">
-                <div class="card">
-                    <img src="../../../public/img/order1.jpg" class="card-img" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-warning">Go somewhere</a>
-                    </div>
+              <div class="card">
+                <div class="img">
+                  <img src="../../../public/img/order1.jpg" width="100%" class="img1">
+                  <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+                </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Категория:</h5>
+                    <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning">Подробнее</a>
                   </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="../../../public/img/order1.jpg" class="card-img" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-warning">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
+                </div>
+          </div>
+
+          <div class="col-4">
+            <div class="card">
+              <div class="img">
+                <img src="../../../public/img/order1.jpg" width="100%" class="img1">
+                <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">Категория:</h5>
+                  <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-warning">Подробнее</a>
+                </div>
+              </div>
+        </div>
+          </div>
     </div>
 
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

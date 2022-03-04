@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RegController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::post('/reg', [IndexController::class, 'reg'])->name('reg');
+Route::post('/reg', [RegController::class, 'reg'])->name('reg');
