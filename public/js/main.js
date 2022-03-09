@@ -1,23 +1,48 @@
 $('form#regForm').on('submit', function(e) {
     e.preventDefault();
 
-let info = $(this).serializeArray();
-console.log(info);
-if(info[3].value == info[4].value) {
+let info = $(this).serialize();
+
     $.ajax({
         url: $(this).attr('action'),
         type:$(this).attr('method'),
-        data:$(this).serialize(),
+        data: info,
         success:function(res) {
             console.log(res);
         }, error: function(res) {
-            console.log(res);
+            $('form#regForm input').removeClass('is-invalid');
+            console.log(res.responseJSON['errors']);
+            $.each(res.responseJSON['errors'], function(index, value){
+                $('form#regForm input[name="'+ index +'"]').addClass('is-invalid');
+                $('#div'+ index + 'error').text(value);
+            })
         }
-
     });
- } else {
-     $('Input#pass1').addClass('is-invalid');
-     $('Input#pass2').addClass('is-invalid');
-     $('div#errorPass').text('не совпадение паролей');
- }
+});
+
+$("form#authForm").submit(function(e) {
+    e.preventDefault();
+
+    let info = $(this).serialize();
+    $('div#formError').slideUp(300);
+    $.ajax({
+        url: $('form#authForm').attr('action'),
+        type:$('form#authForm').attr('method'),
+        data:$('form#authForm').serialize(),
+        success:function(res) {
+            window.location.href ='/';
+        }, error: function(res) {
+            $('div#formError').slideUp(300);
+             $('form#authForm input').removeClass('is-invalid');
+             $('div#formError').text(res.responseJSON.errors['form']).removeAttr('display','');
+            $.each(res.responseJSON['errors'], function(index, value){
+                $('form#authForm input[name="' + index + '"]').addClass('is-invalid');
+                $('div#' + index + 'Error').text(value);
+                
+            console.log(res);
+            console.log(res.responseJSON['errors']);
+            });
+            $('div#formError').text(res.responseJSON.errors['form']).slideDown(300);
+        }
+    });
 });

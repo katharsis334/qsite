@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::post('/reg', [RegController::class, 'reg'])->name('reg');
+Route::post('/auth', [AuthController::class, 'auth'])->name('auth');

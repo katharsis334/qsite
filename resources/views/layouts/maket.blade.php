@@ -18,21 +18,21 @@
             </div>
             <div class="modal-body">
                     @csrf
-                <input type="text" required placeholder="ФИО" class="form-control" name="fio"><br>
+                <input type="text" placeholder="ФИО" class="form-control" name="fio"><br>
                 <div class="invalid-feedback" id="errorFio"></div>
-                <input type="text" required placeholder="Логин" class="form-control" name="login"><br>
+                <input type="text" placeholder="Логин" class="form-control" name="login"><br>
                 <div class="invalid-feedback" id="errorLogin"></div>
-                <input type="password" required placeholder="Пароль" class="form-control" name="pass1"><br>
-                <input type="password" required placeholder="Повторите пароль" class="form-control" name="pass2"><br>
+                <input type="password" placeholder="Пароль" class="form-control" name="password"><br>
+                <input type="password" placeholder="Повторите пароль" class="form-control" name="pass2"><br>
                 <div class="invalid-feedback" id="errorPass"></div>
-                <input type="email" required placeholder="E-mail" class="form-control" name="email"><br>
+                <input type="email" placeholder="E-mail" class="form-control" name="email"><br>
                 <div class="invalid-feedback" id="errorEmail"></div>
-                <input type="checkbox" id="sogl" required>
+                <input type="checkbox" id="sogl">
                 <label for="sogl" class="form-check-label">Я согласен на обработку персональных даннных</label>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-              <button type="submit" class="btn btn-warning">Отправить</button>
+              <button type="submit" class="btn btn-success">Отправить</button>
             </div>
           </form>
           </div>
@@ -46,16 +46,19 @@
               <h5 class="modal-title">Авторизация</h5>
             </div>
             <div class="modal-body">
-            <form action="" method="POST" id="auth">
+            <form action="{{route('auth')}}" method="POST" id="authForm">
                 @csrf
-              <input type="text" required placeholder="Логин" class="form-control" name="login"><br>
-              <input type="password" required placeholder="Пароль" class="form-control" name="pass1">
+              <input type="text" placeholder="Логин" class="form-control" name="login"><br>
+              <div class="invalid-feedback" id="loginError"></div>
+              <input type="password" placeholder="Пароль" class="form-control" name="password">
+              <div class="invalid-feedback" id="passwordError"></div>
+              <div class="alert alert-danger mt-3" role="alert" id="formError" style="display: none"> </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-              <button type="submit" class="btn btn-warning">Отправить</button>
-            </form>
+              <button type="submit" class="btn btn-success">Отправить</button>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -67,7 +70,7 @@
         <div class="container-fluid">
                 <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut debitis. Vitae, rerum id in et </h3>
                 <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut debitis. Vitae, rerum id in et </h4>
-                <button class="btn btn-warning my-2">Попробовать</button>
+                <button class="btn btn-success my-2">Попробовать</button>
         </div>
     </div><br><br>
 
@@ -77,7 +80,7 @@
            <h2>Наши работы:</h2>
         </div>
         <div class="col-4">
-           <h3 style="color: black" >Выполненные заказы:&nbsp;<span class="badge bg-warning">3</span></h3>
+           <h3 style="color: black" >Выполненные заказы:&nbsp;<span class="badge bg-success">3</span></h3>
         </div>
        </div>
     </div><br>
@@ -94,7 +97,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Категория:</h5>
                       <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-warning">Подробнее</a>
+                      <a href="#" class="btn btn-success">Подробнее</a>
                     </div>
                   </div>
             </div>
@@ -108,7 +111,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Категория:</h5>
                     <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-warning">Подробнее</a>
+                    <a href="#" class="btn btn-success">Подробнее</a>
                   </div>
                 </div>
           </div>
@@ -122,7 +125,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Категория:</h5>
                   <p class="card-text">Описание: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-warning">Подробнее</a>
+                  <a href="#" class="btn btn-success">Подробнее</a>
                 </div>
               </div>
         </div>
@@ -138,7 +141,8 @@
           </div>
         </footer>
         
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -23,8 +23,8 @@
               </li>
             </ul>
             <form class="d-flex">
-                <button class="btn btn-outline-warning mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
-              <button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#reg">Зарегистрироваться</button>
+                <button class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
+              <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#reg">Зарегистрироваться</button>
             </form>
           </div>
         </div>

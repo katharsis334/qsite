@@ -11,13 +11,12 @@ use App\Models\User;
 
 class RegController extends Controller
 {
-   public function reg(Request $r)
-   {
+   public function reg(Request $r) {
        $validator = Validator::make($r->all(),[
            'fio' => 'required|string',
            'login' => 'required|string',
            'email' => 'required|string',
-           'pass1' => 'required|string',
+           'password' => 'required|string',
            'pass2' => 'required|string'
 
        ]);
@@ -29,7 +28,7 @@ class RegController extends Controller
                'fio' => $r->fio,
                'login' => $r->login,
                'email' => $r->email,
-               'pass1' => Hash::make($r->pass1),
+               'password' => Hash::make($r->password),
                'is_admin' => '0',
            ]);
            return response()->json('yes', 200);
