@@ -18,7 +18,6 @@ class RegController extends Controller
            'email' => 'required|string',
            'password' => 'required|string',
            'pass2' => 'required|string'
-
        ]);
 
        if($validator->fails()) {

@@ -23,8 +23,14 @@
               </li>
             </ul>
             <form class="d-flex">
+              @if (Auth::check())
+              <a href="{{route('profile')}}" class="btn btn-success mx-2">Личный кабинет</a>
+              <a href="#" class="btn btn-success mx-2">Выйти</a>
+              {{-- {{route('logout')}} --}}
+              @else
                 <button class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
               <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#reg">Зарегистрироваться</button>
+              @endif
             </form>
           </div>
         </div>

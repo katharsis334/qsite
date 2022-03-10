@@ -26,4 +26,8 @@ class AuthController extends Controller
                 return response()->json(['errors' => ['form' => 'Ошибка в логине или пароле!']], 401);
         }
     }
+    // public function logout(){
+    //     Auth::logout();
+    //    return redirect()->route(['main']);
+    // }
 }

@@ -11,7 +11,7 @@ let info = $(this).serialize();
             console.log(res);
         }, error: function(res) {
             $('form#regForm input').removeClass('is-invalid');
-            console.log(res.responseJSON['errors']);
+            console.log(res);
             $.each(res.responseJSON['errors'], function(index, value){
                 $('form#regForm input[name="'+ index +'"]').addClass('is-invalid');
                 $('#div'+ index + 'error').text(value);
@@ -30,7 +30,7 @@ $("form#authForm").submit(function(e) {
         type:$('form#authForm').attr('method'),
         data:$('form#authForm').serialize(),
         success:function(res) {
-            window.location.href ='/';
+            window.location.href ='/public/profile';
         }, error: function(res) {
             $('div#formError').slideUp(300);
              $('form#authForm input').removeClass('is-invalid');
@@ -46,3 +46,20 @@ $("form#authForm").submit(function(e) {
         }
     });
 });
+
+$("form#addOrder").submit(function(e) {
+    e.preventDefault();
+
+    let info = $(this).serialize();
+    $.ajax({
+        url: $('form#addOrder').attr('action'),
+        type:$('form#addOrder').attr('method'),
+        data:$('form#addOrder').serialize(),
+        success:function(res) {
+            console.log(res, 'ewq');
+        }, error: function(res) {
+            console.log(res, 'qwe');
+        }
+    });
+});
+
