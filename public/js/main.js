@@ -47,19 +47,19 @@ $("form#authForm").submit(function(e) {
     });
 });
 
-$("form#addOrder").submit(function(e) {
-    e.preventDefault();
+// $("form#addOrder").submit(function(e) {
+//     e.preventDefault();
 
-    let info = $(this).serialize();
-    $.ajax({
-        url: $('form#addOrder').attr('action'),
-        type:$('form#addOrder').attr('method'),
-        data:$('form#addOrder').serialize(),
-        success:function(res) {
-            console.log(res, 'ewq');
-        }, error: function(res) {
-            console.log(res, 'qwe');
-        }
-    });
-});
+//     let info = $(this).serialize();
+//     $.ajax({
+//         url: $('form#addOrder').attr('action'),
+//         type:$('form#addOrder').attr('method'),
+//         data:$('form#addOrder').serialize(),
+//         success:function(res) {
+//             console.log(res, 'ewq');
+//         }, error: function(res) {
+//             console.log(res, 'qwe');
+//         }
+//     });
+// });
 

@@ -87,16 +87,16 @@
               <span>Создайте заявку</span>
             </div>
             <div>
-              <form action="{{route('addOrder')}}" method="post" id="addOrder" enctype="multipart/form-data">
+              <form action="{{route('addOrder')}}" method="post" enctype="multipart/form-data">
                 @csrf
               <input type="text" placeholder="Название" class="form-control" name="name"><br>
                   <div class="invalid-feedback" id="errorName"></div>
                   <input type="text" placeholder="Описание" class="form-control" name="desc"><br>
                   <div class="invalid-feedback" id="errorDesc"></div>
                   <select name="cat" class="form-select">
-                    <option value="2д-дизайн">2д-дизайн</option>
-                    <option value="3д-дизайн">3д-дизайн</option>
-                    <option value="Эскиз">Эскиз</option>
+                    <option value="1">2д-дизайн</option>
+                    <option value="2">3д-дизайн</option>
+                    <option value="3">Эскиз</option>
                   </select>
                   <div class="invalid-feedback" id="errorSelect"></div>
                   <input type="file" placeholder="Фото" class="form-control my-4" name="img">
@@ -104,6 +104,12 @@
                   <button class="btn btn-success my-4" type="submit">Отправить</button>
               </form>
             </div>
+          </div>
+
+          <div>
+            @foreach ($qwe as $o)
+              <img src="{{'storage/'.$o->img1}}" height="300" width="400" alt="">
+            @endforeach
           </div>
           
 

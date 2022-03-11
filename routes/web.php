@@ -27,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     Route::post('/addOrder', [ProfileController::class, 'addOrder'])->name('addOrder');
+    // Route::post('/profile/update', [ProfileController::class, 'update'])->name('update');
 });

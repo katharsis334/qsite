@@ -24,7 +24,6 @@ class User extends Authenticatable
         'pass2',
         'login',
         'is_admin',
-        'user'
     ];
 
     /**
