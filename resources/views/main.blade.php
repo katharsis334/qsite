@@ -24,11 +24,15 @@
             </ul>
             <form class="d-flex">
               @if (Auth::check())
-              <a href="{{route('profile')}}" class="btn btn-success mx-2">Личный кабинет</a>
-              <a href="#" class="btn btn-success mx-2">Выйти</a>
-              {{-- {{route('logout')}} --}}
+              @if (Auth::user()->is_admin == 1)
+              <a href="{{route('admin')}}" class="btn btn-success mx-2">Админ кабинет</a>
+              <a href="/logOut" class="btn btn-success mx-2">Выйти</a>
               @else
-                <button class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
+              <a href="{{route('profile')}}" class="btn btn-success mx-2">Личный кабинет</a>
+              <a href="/logOut" class="btn btn-success mx-2">Выйти</a>
+              @endif
+              @else
+                <a href="{{route('profile')}}" class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</a>
               <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#reg">Зарегистрироваться</button>
               @endif
             </form>

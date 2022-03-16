@@ -30,7 +30,7 @@ $("form#authForm").submit(function(e) {
         type:$('form#authForm').attr('method'),
         data:$('form#authForm').serialize(),
         success:function(res) {
-            window.location.href ='/public/profile';
+            window.location.href ='/';
         }, error: function(res) {
             $('div#formError').slideUp(300);
              $('form#authForm input').removeClass('is-invalid');
@@ -46,6 +46,96 @@ $("form#authForm").submit(function(e) {
         }
     });
 });
+
+$("form#addComment").submit(function(e) {
+    e.preventDefault();
+
+    let info = $(this).serialize();
+    $.ajax({
+        url: $('form#addComment').attr('action'),
+        type: $('form#addComment').attr('method'),
+        data: info,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success:function(res) {
+            $('input#ChangeStatusWork').text('Принято в работу');
+            console.log(res);
+        }, error: function(res) {     
+            console.log(res);
+        }
+    });
+});
+
+$("form#addCat").submit(function(e) {
+    e.preventDefault();
+
+    let info = $(this).serialize();
+    $.ajax({
+        url: $('form#addCat').attr('action'),
+        type: $('form#addCat').attr('method'),
+        data: info,
+        success:function(res) {
+            // $('input#ChangeStatusWork').text('Принято в работу');
+            console.log(res);
+        }, error: function(res) {     
+            console.log(res);
+        }
+    });
+});
+
+
+
+
+
+
+
+$("form#addImg").submit(function(e) {
+    e.preventDefault();
+
+
+    // var data = new FormData(document.getElementById('addImg'));
+    // $.each( addImg, function( key, value ){
+	// 	data.append( key, value );
+	// });
+    // data.append('addImg', 1);
+    var formData = new FormData($('form#addImg')[0]);
+    // let info = $(this).serialize();
+    $.ajax({
+        url: $('form#addImg').attr('action'),
+        type: $('form#addImg').attr('method'),
+        data: formData,
+        contentType: false,
+        processData: false, 
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success:function(res) {
+            console.log(res); 
+            console.log(formData);
+        }, error: function(res) {    
+            console.log(res); 
+            console.log(formData);
+        }
+    });
+});
+
+$('select#sort').change(function () {
+    let status = $(this).val();
+
+    $.ajax({
+        url: '/profile/sort',
+        type: 'GET',
+        data: {status, status},
+        success: function(res){
+            $('div#OrderCard').html(res);
+        },
+        error: function(res){
+            console.log(res);
+        },
+    });
+});
+
 
 // $("form#addOrder").submit(function(e) {
 //     e.preventDefault();

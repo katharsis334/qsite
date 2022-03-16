@@ -91,8 +91,8 @@
             <div class="col-4">
                 <div class="card">
                   <div class="img">
-                    <img src="../../../public/img/order1.jpg" width="100%" class="img1">
-                    <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+                    <img src="../../../img/order1.jpg" width="100%" class="img1">
+                    <img src="../../../img/order1.jpg" width="100%" class="img2">
                   </div>
                     <div class="card-body">
                       <h5 class="card-title">Категория:</h5>
@@ -105,8 +105,8 @@
             <div class="col-4">
               <div class="card">
                 <div class="img">
-                  <img src="../../../public/img/order1.jpg" width="100%" class="img1">
-                  <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+                  <img src="../../../img/order1.jpg" width="100%" class="img1">
+                  <img src="../../../img/order1.jpg" width="100%" class="img2">
                 </div>
                   <div class="card-body">
                     <h5 class="card-title">Категория:</h5>
@@ -119,8 +119,8 @@
           <div class="col-4">
             <div class="card">
               <div class="img">
-                <img src="../../../public/img/order1.jpg" width="100%" class="img1">
-                <img src="../../../public/img/order1.jpg" width="100%" class="img2">
+                <img src="../../../img/order1.jpg" width="100%" class="img1">
+                <img src="../../../img/order1.jpg" width="100%" class="img2">
               </div>
                 <div class="card-body">
                   <h5 class="card-title">Категория:</h5>

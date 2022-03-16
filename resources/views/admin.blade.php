@@ -41,7 +41,7 @@
                   <a href="/logOut" class="btn btn-success mx-2">Выйти</a>
                   @endif
                   @else
-                  <button class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
+                    <button class="btn btn-success mx-2" type="button" data-bs-toggle="modal" data-bs-target="#auth">Войти</button>
                   <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#reg">Зарегистрироваться</button>
                   @endif
                 </form>
@@ -51,46 +51,39 @@
         </div><br><br>
 
         <div class="container">
+          <div>
+            <h2>Меню управления категориями</h2><hr>
+          </div>
+          @foreach ($cat as $c)
+          <div class="d-flex justify-content-between">
             <div>
-                <span>Ваши заявки:</span>
+              <h3>{{$c->name}}</h3>
             </div>
-           <div>
-               <select name="sort" id="sort" class="form-select">
-                 <option value="Все">Все</option>
-                 <option value="Новая">Новая</option>
-                 <option value="Принято в работу">Принято в работу</option>
-                 <option value="Выполнено">Выполнено</option>
-              </select>
-    </div>
-       </div>
+            <div>
+              <a href="DelCat/{{$c->id}}" class="btn btn-danger">Удалить</a>
+            </div>
+          </div>  
+          <hr>          
+          @endforeach
+        </div>
+
 
           <div class="container mt-4">
             <div>
-              <span>Создайте заявку</span>
+              <span>Создайте категорию</span>
             </div>
             <div>
-              <form action="{{route('addOrder')}}" method="post" enctype="multipart/form-data">
+              <form action="{{route('addCat')}}" method="post" id="addCat">
                 @csrf
               <input type="text" placeholder="Название" class="form-control" name="name"><br>
-                  <div class="invalid-feedback" id="errorName"></div>
-                  <input type="text" placeholder="Описание" class="form-control" name="desc"><br>
-                  <div class="invalid-feedback" id="errorDesc"></div>
-                  <select name="cat" class="form-select">
-                    @foreach ($cat as $c)
-                      <option value="{{$c->id}}">{{$c->name}}</option>
-                    @endforeach
-                  </select>
-                  <div class="invalid-feedback" id="errorSelect"></div>
-                  <input type="file" placeholder="Фото" class="form-control my-4" name="img">
-                  <div class="invalid-feedback" id="errorFile"></div>
-                  <button class="btn btn-success my-4" type="submit">Отправить</button>
-              </form>
+                  <button class="btn btn-success my-4" type="submit">Добавить</button>
+              </form><hr>
             </div>
           </div>
-
-          <div id="OrderCard">
-          @include('incl.SortOrders');
+          <div class="container mt-4">
+            <h2>Заявки</h2>
           </div>
+          @include('incl.SortOrders');
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

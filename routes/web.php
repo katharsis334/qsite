@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,16 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logOut', [ProfileController::class, 'logOut'])->name('logOut');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/profile/sort', [ProfileController::class, 'sort'])->name('sort');
     Route::post('/addOrder', [ProfileController::class, 'addOrder'])->name('addOrder');
     // Route::post('/profile/update', [ProfileController::class, 'update'])->name('update');
+});
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+    Route::post('/addComment', [AdminController::class, 'addComment'])->name('addComment');
+    Route::post('/addImg', [AdminController::class, 'addImg'])->name('addImg');
+    Route::get('/DelCat/{id}', [AdminController::class, 'DelCat'])->name('DelCat');
+    Route::post('/addCat', [AdminController::class, 'addCat'])->name('addCat');
 });
